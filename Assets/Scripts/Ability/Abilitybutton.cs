@@ -11,6 +11,7 @@ namespace Architecture.AbilitySystem
         public Image abilityIcon;
         public int index;
         public Key key;
+        [SerializeField] InputReader input;
 
         public event Action<int> OnButtonPressed = delegate { };
 

@@ -9,6 +9,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField, Range(0, 10)] float dashDistance = 5f;
     [SerializeField] Transform playerModel;
     [SerializeField] LayerMask boundaryMask;
+    [SerializeField] InputReader input;
     private Camera mainCamera;
     private Vector2 moveInput;
 
@@ -18,6 +19,19 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         mainCamera = Camera.main;
+        input.Move += direction => moveInput = direction;
+        input.Dash += IsDashKeyPressed =>
+        {
+            if (IsDashKeyPressed)
+            {
+                Dash();
+            }
+            else
+            {
+                DashFollowUp();
+            }
+        };
+        input.EnablePlayerAction();
     }
 
     // Update is called once per frame
@@ -82,6 +96,10 @@ public class PlayerController : MonoBehaviour
             
             GetPlayerToAPosition(transform.TransformDirection(CalculateMovementDirection().normalized) * dashDistance);
         }
+    }
+    private void DashFollowUp()
+    {
+        return;
     }
     private void GetPlayerToAPosition(Vector3 DestinationPoint)
     {
