@@ -50,17 +50,18 @@ public class PlayerController : MonoBehaviour
         //Mouse mouse = Mouse.current;
     }
 
-    public void Moving(InputAction.CallbackContext context)
-    {
-        moveInput = context.ReadValue<Vector2>();
-    }
-    public void Dashing(InputAction.CallbackContext context)
-    {
-        if (context.action.WasPressedThisFrame())
-        {
-            Dash();
-        }
-    }
+    // Using Unity Events -> Player Inputs
+    //public void Moving(InputAction.CallbackContext context)
+    //{
+    //    moveInput = context.ReadValue<Vector2>();
+    //}
+    //public void Dashing(InputAction.CallbackContext context)
+    //{
+    //    if (context.action.WasPressedThisFrame())
+    //    {
+    //        Dash();
+    //    }
+    //}
 
     private void Move(Vector3 direction)
     {

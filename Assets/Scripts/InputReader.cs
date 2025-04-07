@@ -15,6 +15,7 @@ public class InputReader : ScriptableObject, IPlayerActions, IInputReader
 {
     public event UnityAction<Vector2> Move = delegate { };
     public event UnityAction<bool> Dash = delegate { };
+    public event UnityAction<bool> Attack = delegate { };
 
     public PlayerControlAction inputAction;
     public Vector2 Direction => inputAction.Player.Move.ReadValue<Vector2>();
@@ -42,7 +43,15 @@ public class InputReader : ScriptableObject, IPlayerActions, IInputReader
 
     public void OnAttack(InputAction.CallbackContext context)
     {
-        throw new System.NotImplementedException();
+        switch (context.phase)
+        {
+            case InputActionPhase.Started:
+                Attack.Invoke(true);
+                break;
+            case InputActionPhase.Canceled:
+                Attack.Invoke(false);
+                break;
+        }
     }
 
     public void OnCast(InputAction.CallbackContext context)

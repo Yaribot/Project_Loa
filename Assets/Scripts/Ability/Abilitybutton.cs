@@ -10,30 +10,46 @@ namespace Architecture.AbilitySystem
         public Image radialImage;
         public Image abilityIcon;
         public int index;
-        public Key key;
+        //public Key key;
         [SerializeField] InputReader input;
 
         public event Action<int> OnButtonPressed = delegate { };
 
-        public void Initialize(int index, Key key)
+        // Without new input system...
+        //public void Initialize(int index, Key key)
+        //{
+        //    this.index = index;
+        //    this.key = key;
+        //}
+        public void Initialize(int index)
         {
             this.index = index;
-            this.key = key;
         }
 
         // Start is called once before the first execution of Update after the MonoBehaviour is created
         void Start()
         {
             GetComponent<Button>().onClick.AddListener(() => OnButtonPressed(index));
+            input.Attack += IsAttackkeyPressed =>
+            {
+                if (IsAttackkeyPressed)
+                {
+                    OnButtonPressed(index);
+                }
+                else
+                {
+                    // Follow up to attack...
+                }
+            };
         }
 
         // Update is called once per frame
         void Update()
         {
-            if (Keyboard.current[key].wasPressedThisFrame)
-            {
-                OnButtonPressed(index);
-            }
+            //if (Keyboard.current[key].wasPressedThisFrame)
+            //{
+            //    OnButtonPressed(index);
+            //}
         }
 
         public void RegisterListener(Action<int> listener)
@@ -41,7 +57,7 @@ namespace Architecture.AbilitySystem
             OnButtonPressed += listener;
         }
 
-        public void updatebuttonSprite(Sprite newIcon)
+        public void UpdateButtonSprite(Sprite newIcon)
         {
             abilityIcon.sprite = newIcon;
         }
