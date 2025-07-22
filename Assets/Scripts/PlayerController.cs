@@ -83,19 +83,20 @@ public class PlayerController : MonoBehaviour
     private void Dash()
     {
         RaycastHit hit;
-        
-        if (Physics.Raycast(transform.position, transform.TransformDirection(CalculateMovementDirection().normalized), out hit, dashDistance, boundaryMask))
+        Vector3 direction = CalculateMovementDirection().normalized;
+
+        if (Physics.Raycast(transform.position, direction, out hit, dashDistance, boundaryMask))
         {
-            Debug.DrawRay(transform.position, transform.TransformDirection(CalculateMovementDirection().normalized) * hit.distance, Color.red);
+            Debug.DrawRay(transform.position, direction * hit.distance, Color.red);
             Debug.Log("Did Hit");
             GetPlayerToAPosition(hit.point);
         }
         else
         {
-            Debug.DrawRay(transform.position, transform.TransformDirection(CalculateMovementDirection().normalized) * dashDistance, Color.green);
+            Debug.DrawRay(transform.position, direction * dashDistance, Color.green);
             Debug.Log("Did not Hit");
             
-            GetPlayerToAPosition(transform.TransformDirection(CalculateMovementDirection().normalized) * dashDistance);
+            GetPlayerToAPosition(direction * dashDistance);
         }
     }
     private void DashFollowUp()
@@ -104,7 +105,7 @@ public class PlayerController : MonoBehaviour
     }
     private void GetPlayerToAPosition(Vector3 DestinationPoint)
     {
-        transform.position = DestinationPoint;
+        transform.position += DestinationPoint;
     }
 
 }
