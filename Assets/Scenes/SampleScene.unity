@@ -5485,6 +5485,7 @@ GameObject:
   - component: {fileID: 526717799}
   - component: {fileID: 526717801}
   - component: {fileID: 526717802}
+  - component: {fileID: 526717804}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -5691,6 +5692,20 @@ MonoBehaviour:
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!114 &526717804
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 526717798}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b098bbc9969eb9469ab025c33a1fb5d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 1529015478}
+  input: {fileID: 11400000, guid: e4161cd6deb39ed49a79e67cece401f8, type: 2}
 --- !u!1 &721784440
 GameObject:
   m_ObjectHideFlags: 0
@@ -6548,6 +6563,18 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: 53500e675bce20e4b8446caf9e67d00a, type: 2}
+    - target: {fileID: 5866666021909216657, guid: dfc64b921aee1a04e9c8c6caf8063b9c, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 260691661c1fc664abad3b9cc0fc7f28, type: 2}
+    - target: {fileID: 5866666021909216657, guid: dfc64b921aee1a04e9c8c6caf8063b9c, type: 3}
+      propertyPath: m_CullingMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5866666021909216657, guid: dfc64b921aee1a04e9c8c6caf8063b9c, type: 3}
+      propertyPath: m_ApplyRootMotion
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7673143573127746177, guid: dfc64b921aee1a04e9c8c6caf8063b9c, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -6560,6 +6587,11 @@ PrefabInstance:
 --- !u!4 &1529015477 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: dfc64b921aee1a04e9c8c6caf8063b9c, type: 3}
+  m_PrefabInstance: {fileID: 1529015476}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &1529015478 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 5866666021909216657, guid: dfc64b921aee1a04e9c8c6caf8063b9c, type: 3}
   m_PrefabInstance: {fileID: 1529015476}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1607954330
