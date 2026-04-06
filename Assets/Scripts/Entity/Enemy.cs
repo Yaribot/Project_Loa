@@ -9,6 +9,8 @@ public abstract class Enemy : MonoBehaviour, IEntity, IDamagable
     public GameObject Entity3dModel { get => throw new System.NotImplementedException(); set => throw new System.NotImplementedException(); }
     public AudioSource AudioSource { get => throw new System.NotImplementedException(); set => throw new System.NotImplementedException(); }
 
+    public int difficulty; // 1 - 3  (Not sure about that... might not use that variable)
+
     public virtual void Attack() { }
     public virtual void Move() { }
     public virtual void Die() { }
