@@ -20,7 +20,8 @@ public class RoomManager : MonoBehaviour
             _currentRoomScene = room.sceneName;
 
             // Tell the room to populate itself
-            FindObjectOfType<RoomPopulator>()?.Populate(room);
+            //FindObjectOfType<RoomPopulator>()?.Populate(room);
+            FindFirstObjectByType<RoomPopulator>()?.Populate(room);
         }
     }
 }
