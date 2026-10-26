@@ -15,6 +15,7 @@ MonoBehaviour:
   combatRooms:
   - {fileID: 11400000, guid: 8afdf0f93a428aa44aaadfdeeb8ca443, type: 2}
   - {fileID: 11400000, guid: dcc599606d335f447a36ca258732474f, type: 2}
-  shopRooms: []
+  shopRooms:
+  - {fileID: 11400000, guid: ed07990ee3f1df34fb3146f3e0a537fd, type: 2}
   restRooms: []
   bossRoom: {fileID: 11400000, guid: 5fc0279022897cc4e80259b48f448ebb, type: 2}

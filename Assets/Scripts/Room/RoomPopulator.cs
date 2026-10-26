@@ -33,7 +33,7 @@ public class RoomPopulator : MonoBehaviour
         // Pick 3 random boons and let the player choose one
         //var offered = boonPool.OrderBy(_ => Random.value).Take(3).ToList();
 
-        List<BoonData> available = new List<BoonData>(boonPool); // copy so we can remove
+        List<BoonData> available = new List<BoonData>(boonPool);
         List<BoonData> offered = new List<BoonData>();
 
         int picks = Mathf.Min(3, available.Count); // safety: don't pick more than pool has

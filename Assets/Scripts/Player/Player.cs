@@ -1,8 +1,11 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Player : MonoBehaviour
 {
     public Observer<int> Health = new Observer<int>(100);
+
+    public GameManager GameManager;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -22,6 +25,21 @@ public class Player : MonoBehaviour
         {
             Health.Value += 10;
             Debug.Log("+10 health");
+        }
+    }
+
+    public void ResetPosition()
+    {
+        transform.position = Vector3.zero;
+        transform.rotation = Quaternion.identity;
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Door"))
+        {
+            GameManager.PlayerEnteringDoor.Invoke();
+            ResetPosition();
         }
     }
 }
